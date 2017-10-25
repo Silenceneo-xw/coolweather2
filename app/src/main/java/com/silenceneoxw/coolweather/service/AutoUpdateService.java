@@ -10,6 +10,7 @@ import android.os.SystemClock;
 import android.preference.PreferenceManager;
 
 import com.silenceneoxw.coolweather.gson.Weather;
+import com.silenceneoxw.coolweather.util.ApiUtil;
 import com.silenceneoxw.coolweather.util.HttpUtil;
 import com.silenceneoxw.coolweather.util.Utility;
 
@@ -53,8 +54,7 @@ public class AutoUpdateService extends Service {
             Weather weather = Utility.handleWeatherResponse(weatherString);
             String weatherId = weather.basic.weatherId;
 
-            String weatherUrl = "http://guolin.tech/api/weather?cityid=" +
-                    weatherId + "&key=734fcd2f2cf44b4cbe318c1bafa5ae4d";
+            String weatherUrl = ApiUtil.getCityId() + weatherId + ApiUtil.getHeKey();
             HttpUtil.sendOkHttpRequest(weatherUrl, new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
@@ -80,8 +80,7 @@ public class AutoUpdateService extends Service {
      * 更新必应每日一图
      */
     private void updateBingPic() {
-        String requestBingPic = "http://guolin.tech/api/bing_pic";
-        HttpUtil.sendOkHttpRequest(requestBingPic, new Callback() {
+        HttpUtil.sendOkHttpRequest(ApiUtil.getRequestBingPic(), new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();

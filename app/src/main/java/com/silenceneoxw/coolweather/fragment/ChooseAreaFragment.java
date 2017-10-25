@@ -1,4 +1,4 @@
-package com.silenceneoxw.coolweather;
+package com.silenceneoxw.coolweather.fragment;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -15,9 +15,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.silenceneoxw.coolweather.R;
+import com.silenceneoxw.coolweather.activity.MainActivity;
+import com.silenceneoxw.coolweather.activity.WeatherActivity;
 import com.silenceneoxw.coolweather.db.City;
 import com.silenceneoxw.coolweather.db.County;
 import com.silenceneoxw.coolweather.db.Province;
+import com.silenceneoxw.coolweather.util.ApiUtil;
 import com.silenceneoxw.coolweather.util.HttpUtil;
 import com.silenceneoxw.coolweather.util.Utility;
 
@@ -152,8 +156,7 @@ public class ChooseAreaFragment extends Fragment {
             listView.setSelection(0);
             currentLevel = LEVEL_PROVINCE;
         } else {
-            String address = "http://guolin.tech/api/china";
-            queryFromServer(address, "province");
+            queryFromServer(ApiUtil.getBaseAddress(), "province");
         }
     }
 
@@ -175,7 +178,7 @@ public class ChooseAreaFragment extends Fragment {
             currentLevel = LEVEL_CITY;
         } else {
             int provinceCode = selectedProvince.getProvinceCode();
-            String address = "http://guolin.tech/api/china/" + provinceCode;
+            String address = ApiUtil.getBaseAddress() + "/" + provinceCode;
             queryFromServer(address, "city");
         }
     }
@@ -199,7 +202,7 @@ public class ChooseAreaFragment extends Fragment {
         } else {
             int provinceCode = selectedProvince.getProvinceCode();
             int cityCode = selectedCity.getCityCode();
-            String address = "http://guolin.tech/api/china/" + provinceCode + "/" + cityCode;
+            String address = ApiUtil.getBaseAddress() + "/" + provinceCode + "/" + cityCode;
             queryFromServer(address, "county");
         }
     }

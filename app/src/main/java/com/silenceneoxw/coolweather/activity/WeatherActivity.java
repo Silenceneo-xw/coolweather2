@@ -1,4 +1,4 @@
-package com.silenceneoxw.coolweather;
+package com.silenceneoxw.coolweather.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,9 +20,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.silenceneoxw.coolweather.R;
 import com.silenceneoxw.coolweather.gson.Forecast;
 import com.silenceneoxw.coolweather.gson.Weather;
 import com.silenceneoxw.coolweather.service.AutoUpdateService;
+import com.silenceneoxw.coolweather.util.ApiUtil;
 import com.silenceneoxw.coolweather.util.HttpUtil;
 import com.silenceneoxw.coolweather.util.Utility;
 
@@ -162,8 +164,7 @@ public class WeatherActivity extends AppCompatActivity {
      * @param weatherId
      */
     public void requestWeather(String weatherId) {
-        String weatherUrl = "http://guolin.tech/api/weather?cityid=" +
-                weatherId + "&key=734fcd2f2cf44b4cbe318c1bafa5ae4d";
+        String weatherUrl = ApiUtil.getCityId() + weatherId + ApiUtil.getHeKey();
         HttpUtil.sendOkHttpRequest(weatherUrl, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -206,8 +207,7 @@ public class WeatherActivity extends AppCompatActivity {
      * 加载必应每日一图
      */
     private void loadBingPic() {
-        String requestBingPic = "http://guolin.tech/api/bing_pic";
-        HttpUtil.sendOkHttpRequest(requestBingPic, new Callback() {
+        HttpUtil.sendOkHttpRequest(ApiUtil.getRequestBingPic(), new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
