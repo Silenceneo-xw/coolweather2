@@ -18,9 +18,21 @@ public class Now {
     @SerializedName("cond")
     public More more;
 
+    @SerializedName("wind")
+    public Wind wind;
+
     public class More {
 
         @SerializedName("txt")
         public String info;
+    }
+
+    public class Wind {
+
+        @SerializedName("dir")
+        public String dir;
+
+        @SerializedName("sc")
+        public String sc;
     }
 }

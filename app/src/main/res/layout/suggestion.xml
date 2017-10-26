@@ -15,6 +15,13 @@
         android:textSize="20sp"/>
 
     <TextView
+        android:id="@+id/air_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:textColor="#FFF"/>
+
+    <TextView
         android:id="@+id/comfort_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,7 +36,35 @@
         android:textColor="#FFF"/>
 
     <TextView
+        android:id="@+id/dress_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:textColor="#FFF"/>
+
+    <TextView
+        android:id="@+id/flu_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:textColor="#FFF"/>
+
+    <TextView
         android:id="@+id/sport_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:textColor="#FFF"/>
+
+    <TextView
+        android:id="@+id/travel_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:textColor="#FFF"/>
+
+    <TextView
+        android:id="@+id/ultraviolet_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"

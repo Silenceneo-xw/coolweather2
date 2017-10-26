@@ -39,4 +39,22 @@
         android:gravity="right"
         android:textColor="#FFF"/>
 
+    <TextView
+        android:id="@+id/dir_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:textColor="#FFF"/>
+
+    <TextView
+        android:id="@+id/sc_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:textColor="#FFF"/>
+
 </LinearLayout>
